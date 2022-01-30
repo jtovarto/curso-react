@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Short from "short-uuid";
 const Form = ({ createAppointment }) => {
-  const [appointment, updateAppointment] = useState({
+  const emptyAppointment = {
     pet: "",
     owner: "",
     date: "",
     time: "",
     symptoms: "",
-  });
+  };
+  const [appointment, updateAppointment] = useState(emptyAppointment);
 
   const [errorBag, updateErrorBag] = useState(false);
 
@@ -27,10 +28,13 @@ const Form = ({ createAppointment }) => {
       }
     }
     updateErrorBag(false);
+    
     appointment.id = Short.generate();
 
     createAppointment(appointment);
-    // reiniciar form
+    
+    updateAppointment(emptyAppointment);
+    
   };
   return (
     <>
