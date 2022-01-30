@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Short from "short-uuid";
 const Form = () => {
   const [appointment, updateAppointment] = useState({
     pet: "",
@@ -21,11 +22,13 @@ const Form = () => {
     e.preventDefault();
     for (const property in appointment) {
       if (appointment[property].trim() === "") {
-        updateErrorBag(true);        
+        updateErrorBag(true);
         return;
       }
     }
     updateErrorBag(false);
+    appointment.id = Short.generate();
+    
     //validar
     //asignar id
     //crear lista
