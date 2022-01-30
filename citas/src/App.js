@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "./Components/Form";
 import Appointment from "./Components/Appointment";
 
 function App() {
-  const [appointments, updateAppointments] = useState([]);
+  let initAppointments = JSON.parse(localStorage.getItem("appointments")) ?? [];
+  const [appointments, updateAppointments] = useState(initAppointments);
+
+  useEffect(() => {
+    localStorage.setItem("appointments", JSON.stringify(appointments));
+  }, [appointments]);
 
   const createAppointment = (appointment) => {
     updateAppointments([...appointments, appointment]);
