@@ -8,16 +8,36 @@ const Form = () => {
     symptoms: "",
   });
 
+  const [errorBag, updateErrorBag] = useState(false);
+
   const handleOnChange = (e) => {
     updateAppointment({
       ...appointment,
       [e.target.name]: e.target.value,
     });
   };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    for (const property in appointment) {
+      if (appointment[property].trim() === "") {
+        updateErrorBag(true);        
+        return;
+      }
+    }
+    updateErrorBag(false);
+    //validar
+    //asignar id
+    //crear lista
+    // reiniciar form
+  };
   return (
     <>
       <h2>Crear Cita</h2>
-      <form>
+      {errorBag ? (
+        <p className="alerta-error">Todos los campos son obligatorios</p>
+      ) : null}
+      <form onSubmit={onSubmit}>
         <label>Nombre mascota</label>
         <input
           type="text"
@@ -53,7 +73,7 @@ const Form = () => {
           name="time"
           className="u-full-width"
           onChange={handleOnChange}
-          value={appointment.time }
+          value={appointment.time}
         />
 
         <label>Síntomas</label>
@@ -63,7 +83,8 @@ const Form = () => {
           rows="10"
           className="u-full-width"
           onChange={handleOnChange}
-        >{appointment.pet}</textarea>
+          value={appointment.symptoms}
+        ></textarea>
 
         <button type="sbmit" className="u-full-width button-primary">
           Agregar Cita
