@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Short from "short-uuid";
+import PropTypes from "prop-types";
+
 const Form = ({ createAppointment }) => {
   const emptyAppointment = {
     pet: "",
@@ -28,13 +30,12 @@ const Form = ({ createAppointment }) => {
       }
     }
     updateErrorBag(false);
-    
+
     appointment.id = Short.generate();
 
     createAppointment(appointment);
-    
+
     updateAppointment(emptyAppointment);
-    
   };
   return (
     <>
@@ -98,5 +99,7 @@ const Form = ({ createAppointment }) => {
     </>
   );
 };
-
+Form.propTypes = {
+  createAppointment: PropTypes.func.isRequired
+};
 export default Form;
