@@ -1,17 +1,42 @@
+import { useState } from "react";
+
 const Form = () => {
+  const [input, updateInput] = useState({
+    name: "",
+    amount: 0,
+  });
+
+  const handleOnChange = (e) => {
+    updateInput({
+      ...input,
+      [e.target.name]: parseInt(e.target.value),
+    });
+  };
+  
+
   return (
-    <form>
+    <form >
       <div className="campo">
         <label>Nombre Gasto</label>
         <input
           type="text"
+          name="name"
           className="u-full-width"
           placeholder="Ej. Transporte"
+          value={input.name}
+          onChange={handleOnChange}
         />
       </div>
       <div className="campo">
         <label>Cantidad Gasto</label>
-        <input type="number" className="u-full-width" placeholder="Ej. 300" />
+        <input
+          type="number"
+          name="amount"
+          className="u-full-width"
+          placeholder="Ej. 300"
+          value={input.amount}
+          onChange={handleOnChange}
+        />
       </div>
 
       <input
