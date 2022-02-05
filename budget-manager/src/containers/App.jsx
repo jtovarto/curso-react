@@ -5,22 +5,27 @@ import Question from "./Question";
 function App() {
   const [budget, updateBudget] = useState(0);
   const [remaining, updateRemaining] = useState(0);
+  const [showQuestion, updateShowQuestion] = useState(true);
 
   return (
     <div className="container">
       <header>
         <h1>Gasto Semanal</h1>
         <div className="contenido-principal contenido">
-          <Question
-            updateBudget={updateBudget}
-            updateRemaining={updateRemaining}
-          />
-          <div className="row">
-            <div className="one-half column">
-              <Form />
+          {showQuestion ? (
+            <Question
+              updateBudget={updateBudget}
+              updateRemaining={updateRemaining}
+              updateShowQuestion={updateShowQuestion}
+            />
+          ) : (
+            <div className="row">
+              <div className="one-half column">
+                <Form />
+              </div>
+              <div className="one-half column">2</div>
             </div>
-            <div className="one-half column">2</div>
-          </div>
+          )}
         </div>
       </header>
     </div>
