@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Error from "../components/Error";
 
 const Question = () => {
   const [amount, updateAmount] = useState(0);
@@ -12,12 +13,12 @@ const Question = () => {
       return;
     }
     updateErrors(false);
-    
   };
 
   return (
     <>
       <h2>Coloca tu presupuesto</h2>
+      {errors ? <Error message="El monto introducido es inválido" /> : null}
       <form onSubmit={addBudget}>
         <input
           type="number"
