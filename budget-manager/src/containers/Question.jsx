@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Error from "../components/Error";
 
-const Question = () => {
+const Question = ({ updateBudget, updateRemaining }) => {
   const [amount, updateAmount] = useState(0);
   const [errors, updateErrors] = useState(false);
 
@@ -13,6 +13,8 @@ const Question = () => {
       return;
     }
     updateErrors(false);
+    updateBudget(amount);
+    updateRemaining(amount);
   };
 
   return (
