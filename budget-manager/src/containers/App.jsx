@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BudgetControl from "../components/BudgetControl";
 import Expenses from "../components/Expenses";
 import Form from "../components/Form";
 import Question from "../components/Question";
@@ -8,7 +9,7 @@ function App() {
   const [remaining, updateRemaining] = useState(0);
   const [expenses, updateExpenses] = useState([]);
   const [showQuestion, updateShowQuestion] = useState(true);
-  
+
   const addExpense = (expense) => {
     updateExpenses([...expenses, expense]);
   };
@@ -32,8 +33,12 @@ function App() {
                 />
               </div>
               <div className="one-half column">
+                <BudgetControl 
+                  budget={budget} 
+                  remaining={remaining} 
+                />
                 <Expenses 
-                  expenses={expenses}
+                  expenses={expenses} 
                 />
               </div>
             </div>
