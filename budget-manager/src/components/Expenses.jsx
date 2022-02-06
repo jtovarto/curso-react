@@ -1,4 +1,5 @@
 import Expense from "./Expense";
+import PropTypes from "prop-types";
 
 const Expenses = ({ expenses }) => {
   return (
@@ -10,5 +11,7 @@ const Expenses = ({ expenses }) => {
     </div>
   );
 };
-
+Expenses.propTypes = {
+  expenses: PropTypes.array.isRequired,
+};
 export default Expenses;

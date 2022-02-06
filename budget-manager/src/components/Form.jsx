@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import shortid from "shortid";
 import Error from "./Error";
 
@@ -77,5 +78,7 @@ const Form = ({ addExpense }) => {
     </form>
   );
 };
-
+Form.propTypes = {
+  addExpense: PropTypes.func.isRequired,
+};
 export default Form;

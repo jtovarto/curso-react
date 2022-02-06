@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Expense = ({ expense }) => {
   const { name, amount } = expense;
   return (
@@ -9,5 +11,7 @@ const Expense = ({ expense }) => {
     </li>
   );
 };
-
+Expense.propTypes = {
+  expense: PropTypes.object.isRequired,
+};
 export default Expense;
