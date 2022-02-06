@@ -34,7 +34,7 @@ const Question = ({ updateBudget, updateRemaining, updateShowQuestion }) => {
 
         <input
           type="submit"
-          className="button-primary- u-full-width"
+          className="button-primary u-full-width"
           value="Definir Presupuesto"
         />
       </form>
@@ -45,6 +45,6 @@ const Question = ({ updateBudget, updateRemaining, updateShowQuestion }) => {
 Question.propTypes = {
   updateBudget: PropTypes.func.isRequired,
   updateRemaining: PropTypes.func.isRequired,
-  updateShowQuestion: PropTypes.func.isRequired
+  updateShowQuestion: PropTypes.func.isRequired,
 };
 export default Question;
