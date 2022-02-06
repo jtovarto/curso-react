@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BudgetControl from "../components/BudgetControl";
 import Expenses from "../components/Expenses";
 import Form from "../components/Form";
@@ -10,6 +10,14 @@ function App() {
   const [expenses, updateExpenses] = useState([]);
   const [showQuestion, updateShowQuestion] = useState(true);
 
+  useEffect(() => {
+    if (expenses.length > 0) {
+      const { amount: totalExpenses } = expenses.reduce((a, c) => ({
+        amount: a.amount + c.amount,
+      }));
+      updateRemaining(budget - totalExpenses);
+    }
+  }, [expenses]);
   const addExpense = (expense) => {
     updateExpenses([...expenses, expense]);
   };
@@ -28,18 +36,11 @@ function App() {
           ) : (
             <div className="row">
               <div className="one-half column">
-                <Form 
-                  addExpense={addExpense} 
-                />
+                <Form addExpense={addExpense} />
               </div>
               <div className="one-half column">
-                <BudgetControl 
-                  budget={budget} 
-                  remaining={remaining} 
-                />
-                <Expenses 
-                  expenses={expenses} 
-                />
+                <BudgetControl budget={budget} remaining={remaining} />
+                <Expenses expenses={expenses} />
               </div>
             </div>
           )}
