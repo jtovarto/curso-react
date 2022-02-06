@@ -1,6 +1,7 @@
 import { useState } from "react";
-import Form from "./Form";
-import Question from "./Question";
+import Expenses from "../components/Expenses";
+import Form from "../components/Form";
+import Question from "../components/Question";
 
 function App() {
   const [budget, updateBudget] = useState(0);
@@ -11,7 +12,7 @@ function App() {
   const addExpense = (expense) => {
     updateExpenses([...expenses, expense]);
   };
-  
+
   return (
     <div className="container">
       <header>
@@ -30,7 +31,11 @@ function App() {
                   addExpense={addExpense} 
                 />
               </div>
-              <div className="one-half column">2</div>
+              <div className="one-half column">
+                <Expenses 
+                  expenses={expenses}
+                />
+              </div>
             </div>
           )}
         </div>

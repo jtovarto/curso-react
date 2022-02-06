@@ -1,6 +1,6 @@
 import { useState } from "react";
 import shortid from "shortid";
-import Error from "../components/Error";
+import Error from "./Error";
 
 const Form = ({ addExpense }) => {
   const [errors, updateErrors] = useState(false);
