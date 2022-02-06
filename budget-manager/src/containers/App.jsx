@@ -22,6 +22,13 @@ function App() {
     updateExpenses([...expenses, expense]);
   };
 
+  const resetApp = () => {    
+    updateBudget(0);
+    updateRemaining(0);
+    updateExpenses([]);
+    updateShowQuestion(true);
+  };
+
   return (
     <div className="container">
       <header>
@@ -37,6 +44,12 @@ function App() {
             <div className="row">
               <div className="one-half column">
                 <Form addExpense={addExpense} />
+                <button
+                  className="button-secondary u-full-width"
+                  onClick={resetApp}
+                >
+                  Limpiar Todo
+                </button>
               </div>
               <div className="one-half column">
                 <BudgetControl budget={budget} remaining={remaining} />
