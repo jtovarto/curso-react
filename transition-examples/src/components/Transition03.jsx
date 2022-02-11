@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
-import "./Transition03.css";
+import "./Transitions.css";
 import Form from "./Form";
 import Welcome from "./Welcome";
 
