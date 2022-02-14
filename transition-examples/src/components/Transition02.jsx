@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CSSTransition } from "react-transition-group";
-import "./Transition02.css";
+import "./Transitions.css";
 
 const Transition02 = () => {
   const [showMessage, setShowMessage] = useState(false);

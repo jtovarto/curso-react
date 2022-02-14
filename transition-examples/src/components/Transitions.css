@@ -34,3 +34,26 @@
   transform:translateX(-100%);
   transition: opacity 300ms, transform 300ms;
 }
+
+.translate {
+  transform:translateX(50%);
+}
+.example2-enter {
+  opacity: 0;
+  transform:translateX(-100%);
+}
+.example2-enter-active {
+  opacity: 1;
+  transform:translateX(50%);
+  transition: opacity 300ms, transform 300ms;
+}
+.example2-exit {
+  opacity: 1;
+  transform:translateX(50%);
+}
+.example2-exit-active {
+  opacity: 0;
+  transform:translateX(100%);
+  transition: opacity 300ms, transform 300ms;
+}
+
