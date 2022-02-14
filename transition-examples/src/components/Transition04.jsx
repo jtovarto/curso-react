@@ -35,9 +35,10 @@ const Transition04 = () => {
         <div class="list-group w-25 mx-auto btn-group">
           {items.map((item, index) => (
             <CSSTransition
+              in={true}
               key={index}
               timeout={500}
-              classNames="example"
+              classNames="fade"
               addEndListener={transitionendEvent}
             >
               <a
